@@ -21,12 +21,12 @@ public class ProductDAO {
 
     private static final String CREATE_TABLE = "CREATE TABLE " + TABLE_NAME + " (" +
             KEY + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-            NAME + " VARCAHR(30) NOT NULL, " +
+            NAME + " VARCAHR(30) NOT NULL UNIQUE, " +
             TYPE + " INTEGER NOT NULL, " +
             SUB_TYPE + " INTEGER, " +
             TASTE + " INTEGER, " +
             SIZE + " INTEGER, " +
-            STOCK + " INTEGER, " +
+            STOCK + " INTEGER CHECK (" + STOCK + " >= 0), " +
             UNIT_PRICE + " INTEGER NOT NULL, " +
             DESCRIPTION + " TEXT);";
 
