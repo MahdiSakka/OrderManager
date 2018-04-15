@@ -24,11 +24,17 @@ public class CustomerDAO {
             FACEBOOK_PROFILE + " TEXT, " +
             LOYALTY_POINTS + " INTEGER);";
 
+    private static final String DROP_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME + ";";
+
     public CustomerDAO(SQLiteDatabase database) {
         this.database = database;
     }
 
     public void createTable() {
         this.database.execSQL(CREATE_TABLE);
+    }
+
+    public void removeTable() {
+        this.database.execSQL(DROP_TABLE);
     }
 }

@@ -1,9 +1,12 @@
 package com.mahdi.ordermanager.dbmanager.dao;
 
+import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.mahdi.ordermanager.dbmanager.model.Command;
 import com.mahdi.ordermanager.dbmanager.model.Product;
+
+import javafx.scene.control.Tab;
 
 public class CommandLinesDAO {
     private SQLiteDatabase database;
@@ -37,7 +40,12 @@ public class CommandLinesDAO {
         this.database.execSQL(DROP_TABLE);
     }
 
-    public void addCommandLine (Product product) {
-
+    public void addCommandLine (Product product, int quantity, Command command) {
+        ContentValues values = new ContentValues();
+        values.putNull(KEY);
+        values.put(COMMAND_ID, command.getId());
+        values.put(PRODUCT_ID, product.getId());
+        values.put(QUANTITY, quantity);
+        database.insert(TABLE_NAME, null, values);
     }
 }
