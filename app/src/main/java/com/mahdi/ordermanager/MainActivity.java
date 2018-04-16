@@ -5,8 +5,6 @@ import android.os.Bundle;
 
 import com.mahdi.ordermanager.dbmanager.DataBaseHandler;
 
-import javafx.application.Application;
-
 public class MainActivity extends AppCompatActivity {
     DataBaseHandler dataBaseHandler;
     @Override
