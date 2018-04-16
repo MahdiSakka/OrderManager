@@ -2,6 +2,8 @@ package com.mahdi.ordermanager.dbmanager.dao;
 
 import android.database.sqlite.SQLiteDatabase;
 
+import com.mahdi.ordermanager.dbmanager.model.Settings;
+
 public class SettingsDAO {
     private SQLiteDatabase database;
 
@@ -26,5 +28,9 @@ public class SettingsDAO {
 
     public void removeTable () {
         database.execSQL(DROP_TABLE);
+    }
+
+    public void loadSettings(Settings settings) {
+
     }
 }
