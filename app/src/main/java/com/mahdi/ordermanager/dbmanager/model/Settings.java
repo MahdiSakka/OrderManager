@@ -17,4 +17,8 @@ public class Settings {
     public void remove(String key) {
         settings.remove(key);
     }
+
+    public void clear() {
+        settings.clear();
+    }
 }

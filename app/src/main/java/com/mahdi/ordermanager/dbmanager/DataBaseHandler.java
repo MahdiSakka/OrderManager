@@ -8,7 +8,10 @@ import com.mahdi.ordermanager.dbmanager.dao.CommandDAO;
 import com.mahdi.ordermanager.dbmanager.dao.CommandLinesDAO;
 import com.mahdi.ordermanager.dbmanager.dao.CustomerDAO;
 import com.mahdi.ordermanager.dbmanager.dao.ProductDAO;
+import com.mahdi.ordermanager.dbmanager.dao.SettingsDAO;
+import com.mahdi.ordermanager.dbmanager.dao.StockDAO;
 import com.mahdi.ordermanager.dbmanager.dao.UserDAO;
+import com.mahdi.ordermanager.dbmanager.model.Settings;
 
 public class DataBaseHandler extends SQLiteOpenHelper {
     // database name
@@ -21,6 +24,8 @@ public class DataBaseHandler extends SQLiteOpenHelper {
     private CustomerDAO customerDAO;
     private ProductDAO productDAO;
     private CommandLinesDAO commandLinesDAO;
+    private SettingsDAO settingsDAO;
+    private StockDAO stockDAO;
 
     private SQLiteDatabase database;
 
@@ -58,6 +63,8 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         customerDAO = new CustomerDAO(database);
         commandDAO = new CommandDAO(database);
         commandLinesDAO = new CommandLinesDAO(database);
+        settingsDAO = new SettingsDAO(database);
+        stockDAO = new StockDAO(database);
     }
 
     private void createTables() {
@@ -66,6 +73,8 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         customerDAO.createTable();
         commandDAO.createTable();
         commandLinesDAO.createTable();
+        settingsDAO.createTable();
+        stockDAO.createTable();
     }
 
     private void dropTables() {
@@ -74,5 +83,7 @@ public class DataBaseHandler extends SQLiteOpenHelper {
         customerDAO.removeTable();
         commandDAO.removeTable();
         commandLinesDAO.removeTable();
+        settingsDAO.removeTable();
+        stockDAO.removeTable();
     }
 }
